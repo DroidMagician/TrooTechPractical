@@ -1,0 +1,42 @@
+<resources>
+    <string name="app_name">TrootechPractical</string>
+    <string name="enter_email_id">Enter Email Id</string>
+    <string name="enter_password">Enter Password</string>
+    <string name="login">Login</string>
+    <string name="please_enter_email">Please Enter Email</string>
+    <string name="enter_name">Enter Name</string>
+    <string name="register">Register</string>
+    <string name="title_activity_home">HomeActivity</string>
+    <string name="navigation_drawer_open">Open navigation drawer</string>
+    <string name="navigation_drawer_close">Close navigation drawer</string>
+    <string name="nav_header_title">Android Studio</string>
+    <string name="nav_header_subtitle">android.studio@android.com</string>
+    <string name="nav_header_desc">Navigation header</string>
+    <string name="action_select_all">Select All</string>
+
+    <string name="menu_home">Home</string>
+    <string name="menu_profile">Profile</string>
+    <string name="menu_logout">Logout</string>
+    <string name="logout">Logout</string>
+    <string name="already_have_an_account_login">Already have an account? Login</string>
+    <string name="please_enter_password">Please Enter Password</string>
+    <string name="please_enter_name">Please Enter Name</string>
+    <string name="upload_picture">Upload Picture</string>
+    <string name="how_do_you_want_to_set_your_picture">How do you want to set your picture?</string>
+    <string name="gallery">Gallery</string>
+    <string name="camera">Camera</string>
+    <string name="please_verify_your_email">Please verify your email to continue using the app</string>
+    <string name="message_register_success">Registered successfully.Please verify your email to login.</string>
+    <string name="please_select_from_date">Please select from date</string>
+    <string name="please_select_to_date">Please select to date</string>
+    <string name="please_select_proper_dates">Please select proper from date and to date</string>
+    <string name="from_date">From Date</string>
+    <string name="to_date">To Date</string>
+    <string name="confirm_exit">Are you sure you want to exit?</string>
+    <string name="yes">Yes</string>
+    <string name="no">No</string>
+    <string name="unselect_all">Unselect All</string>
+    <string name="don_t_have_an_account_register">Don\'t Have an Account? Register</string>
+    <string name="filter">Filter</string>
+    <string name="download">Download</string>
+</resources>

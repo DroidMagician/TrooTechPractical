@@ -1,0 +1,39 @@
+{
+  "project_info": {
+    "project_number": "316113804932",
+    "project_id": "trootechpractical",
+    "storage_bucket": "trootechpractical.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:316113804932:android:b486d96ab5b52a5ab5ecd1",
+        "android_client_info": {
+          "package_name": "com.example.trootechpractical"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "316113804932-rvcucu94bjrc6s7kuv1llj00jl899koh.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAuqfwOaypcBkta10mcQCr70AVgKhw2h1s"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "316113804932-rvcucu94bjrc6s7kuv1llj00jl899koh.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
