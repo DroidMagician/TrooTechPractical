@@ -6,7 +6,7 @@ import kotlinx.coroutines.flow.Flow
 import javax.inject.Inject
 
 /**
- * Implementation of LoginUseCase
+ * Implementation of HomeUseCase
  * @param homeRepository the HomeRepository object
  */
 internal class HomeUseCaseImpl @Inject constructor(private val homeRepository: HomeRepository) :

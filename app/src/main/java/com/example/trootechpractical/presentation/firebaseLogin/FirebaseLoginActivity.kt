@@ -13,9 +13,7 @@ import com.example.trootechpractical.utils.SharedPrefs
 import dagger.hilt.android.AndroidEntryPoint
 import javax.inject.Inject
 
-/**
- * Launcher Activity (Entry point) of this application
- */
+
 @AndroidEntryPoint
 class FirebaseLoginActivity : BaseActivity<FirebaseLoginViewModel, ActivityFirebaseLoginBinding>(ActivityFirebaseLoginBinding::inflate){
 

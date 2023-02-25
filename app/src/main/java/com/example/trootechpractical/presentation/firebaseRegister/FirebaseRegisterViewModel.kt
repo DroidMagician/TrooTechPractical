@@ -37,6 +37,7 @@ class FirebaseRegisterViewModel @Inject constructor(private val repository: Auth
             _registerResponse.value = result
         }
     }
+    //Validate User Input
     private fun validateInput(): Boolean {
         if(registerRequestModel.name.isNullOrBlank())
         {

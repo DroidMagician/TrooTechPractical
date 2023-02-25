@@ -11,8 +11,7 @@ import javax.inject.Inject
 
 
 /**
- * RemoteDataSource of Chara010cters API service
- * @param apiService the object of api service
+ * RemoteDataSource of UserList which we are getting from Assets Json File
  */
 class HomeRemoteDataSource @Inject constructor( private val application: Application
 ) {

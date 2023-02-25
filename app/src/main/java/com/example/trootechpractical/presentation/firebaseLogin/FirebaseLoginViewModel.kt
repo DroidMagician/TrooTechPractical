@@ -33,6 +33,7 @@ class FirebaseLoginViewModel @Inject constructor(
     val errorMessage: LiveData<String> = _errorMessage
 
 
+    //Do Login With Firebase
     fun login() = viewModelScope.launch {
         if (validateInput()) {
             _loginResponse.value = Output(Output.Status.LOADING)
@@ -43,6 +44,7 @@ class FirebaseLoginViewModel @Inject constructor(
 
 }
 
+    //Validate User Input
 private fun validateInput(): Boolean {
     if (loginRequestModel.email.isNullOrBlank()) {
         _errorMessage.value = application.getString(R.string.please_enter_email)

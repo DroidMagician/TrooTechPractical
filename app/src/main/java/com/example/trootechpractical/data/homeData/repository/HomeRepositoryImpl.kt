@@ -12,7 +12,7 @@ import kotlinx.coroutines.flow.flowOn
 import javax.inject.Inject
 
 /**
- * Implementation of CharsRepository
+ * Implementation of HomeRepository
  * @param homeRemoteDataSource the object of remote data source
  */
 internal class HomeRepositoryImpl @Inject constructor(
