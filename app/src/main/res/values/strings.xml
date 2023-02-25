@@ -4,7 +4,7 @@
     <string name="enter_password">Enter Password</string>
     <string name="login">Login</string>
     <string name="please_enter_email">Please Enter Email</string>
-    <string name="enter_name">Enter Name</string>
+    <string name="enter_name">Enter User Name</string>
     <string name="register">Register</string>
     <string name="title_activity_home">HomeActivity</string>
     <string name="navigation_drawer_open">Open navigation drawer</string>
@@ -39,4 +39,5 @@
     <string name="don_t_have_an_account_register">Don\'t Have an Account? Register</string>
     <string name="filter">Filter</string>
     <string name="download">Download</string>
+    <string name="enter_valid_email">Please Enter Valid Email</string>
 </resources>

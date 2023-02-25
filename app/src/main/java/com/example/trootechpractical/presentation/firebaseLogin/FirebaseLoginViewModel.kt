@@ -1,6 +1,7 @@
 package com.example.trootechpractical.presentation.firebaseLogin
 
 import android.app.Application
+import android.util.Patterns
 import android.widget.Toast
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
@@ -46,7 +47,12 @@ private fun validateInput(): Boolean {
     if (loginRequestModel.email.isNullOrBlank()) {
         _errorMessage.value = application.getString(R.string.please_enter_email)
         return false
-    } else if (loginRequestModel.password.isNullOrBlank()) {
+    }
+    else if (!Patterns.EMAIL_ADDRESS.matcher(loginRequestModel.email.toString().trim()).matches()) {
+        _errorMessage.value = application.getString(R.string.enter_valid_email)
+        return false
+    }
+    else if (loginRequestModel.password.isNullOrBlank()) {
         _errorMessage.value = application.getString(R.string.please_enter_password)
         return false
     } else {

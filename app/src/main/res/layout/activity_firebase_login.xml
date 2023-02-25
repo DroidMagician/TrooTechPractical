@@ -17,6 +17,7 @@
         android:layout_margin="20dp"
         android:id="@+id/edtEmail"
         android:hint="@string/enter_email_id"
+        android:inputType="textEmailAddress"
         android:text="@={viewModel.loginRequestModel.email}"
         android:layout_height="wrap_content"
         app:layout_constraintEnd_toEndOf="parent"

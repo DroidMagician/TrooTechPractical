@@ -2,6 +2,7 @@ package com.example.trootechpractical.presentation.firebaseRegister
 
 import android.app.Application
 import android.util.Log
+import android.util.Patterns
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
@@ -45,6 +46,10 @@ class FirebaseRegisterViewModel @Inject constructor(private val repository: Auth
         else if(registerRequestModel.email.isNullOrBlank())
         {
             _errorMessage.value = application.getString(R.string.please_enter_email)
+            return false
+        }
+        else if (!Patterns.EMAIL_ADDRESS.matcher(registerRequestModel.email.trim()).matches()) {
+            _errorMessage.value = application.getString(R.string.enter_valid_email)
             return false
         }
         else if(registerRequestModel.password.isNullOrBlank())
