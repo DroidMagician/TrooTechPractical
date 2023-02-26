@@ -6,7 +6,6 @@ import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.viewModelScope
 import com.example.trootechpractical.domain.common.Output
-import com.example.trootechpractical.domain.firebase.model.LoginRequestModel
 import com.example.trootechpractical.domain.homeData.model.UserModel
 import com.example.trootechpractical.domain.homeData.usecase.HomeUseCase
 import com.example.trootechpractical.presentation.base.BaseViewModel

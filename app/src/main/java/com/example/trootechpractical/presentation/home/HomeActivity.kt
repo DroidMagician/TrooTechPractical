@@ -13,8 +13,10 @@ import com.example.trootechpractical.R
 import com.example.trootechpractical.databinding.ActivityHomeBinding
 import com.example.trootechpractical.presentation.base.BaseActivity
 import com.example.trootechpractical.presentation.home.ui.HomeDataViewModel
+import com.example.trootechpractical.utils.Utils
 import com.google.android.material.navigation.NavigationView
 import dagger.hilt.android.AndroidEntryPoint
+import okhttp3.internal.Util
 
 
 @AndroidEntryPoint
@@ -44,14 +46,14 @@ class HomeActivity : BaseActivity<HomeDataViewModel, ActivityHomeBinding>(Activi
                 R.id.action_select_all -> {
                     val menu: Menu = myBinding.appBarHome.toolbar.getMenu()
                     val menuItem: MenuItem = menu.findItem(R.id.action_select_all)
-                    if(menuItem.title?.equals("Select All") == true)
+                    if(menuItem.title?.equals(getString(R.string.action_select_all)) == true)
                     {
-                        sendBroadcast(Intent("SELECT_ALL"))
-                        menuItem.setTitle(getString(R.string.unselect_all))
+                        sendBroadcast(Intent(Utils.SELECT_ALL))
+                        menuItem.title = getString(R.string.unselect_all)
                     }
                     else{
-                        sendBroadcast(Intent("UNSELECT_ALL"))
-                        menuItem.setTitle(getString(R.string.action_select_all))
+                        sendBroadcast(Intent(Utils.UNSELECT_ALL))
+                        menuItem.title = getString(R.string.action_select_all)
                     }
 
                 }

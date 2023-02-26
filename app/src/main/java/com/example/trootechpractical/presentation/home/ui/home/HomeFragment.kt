@@ -25,6 +25,7 @@ import com.example.trootechpractical.domain.common.Output
 import com.example.trootechpractical.domain.homeData.model.UserModel
 import com.example.trootechpractical.utils.BindingAdapter
 import com.example.trootechpractical.utils.FileDownloader
+import com.example.trootechpractical.utils.Utils
 import dagger.hilt.android.AndroidEntryPoint
 import java.text.SimpleDateFormat
 import java.util.*
@@ -55,18 +56,18 @@ class HomeFragment : Fragment() {
         val root: View = binding.root
 
         observe(homeViewModel)
-        listner()
+        listener()
         receiver = MyReceiver(Handler()); // Create the receiver
         var intentfilter = IntentFilter()
-        intentfilter.addAction("SELECT_ALL")
-        intentfilter.addAction("UNSELECT_ALL")
+        intentfilter.addAction(Utils.SELECT_ALL)
+        intentfilter.addAction(Utils.UNSELECT_ALL)
         requireActivity().registerReceiver(receiver, IntentFilter(intentfilter))
         requireActivity().registerReceiver(onComplete,  IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
 
         return root
     }
 
-    private fun listner() {
+    private fun listener() {
 
         myBinding?.icCross?.setOnClickListener {
             fromDate = Calendar.getInstance()
@@ -101,7 +102,6 @@ class HomeFragment : Fragment() {
         myBinding?.lilFromDate?.setOnClickListener {
             DatePickerDialog(requireContext(),
                 fromDateSetListener,
-                // set DatePickerDialog to point to today's date when it loads up
                 fromDate.get(Calendar.YEAR),
                 fromDate.get(Calendar.MONTH),
                 fromDate.get(Calendar.DAY_OF_MONTH)).show()
@@ -110,7 +110,6 @@ class HomeFragment : Fragment() {
         myBinding?.lilToDate?.setOnClickListener {
             DatePickerDialog(requireContext(),
                 toDateSetListener,
-                // set DatePickerDialog to point to today's date when it loads up
                 toDate.get(Calendar.YEAR),
                 toDate.get(Calendar.MONTH),
                 toDate.get(Calendar.DAY_OF_MONTH)).show()
@@ -138,7 +137,6 @@ class HomeFragment : Fragment() {
             for (user in userList)
             {
                 var mydate = user.date?.split(" ")?.get(0)
-//                Log.e("MyDate is","Date ${mydate}")
                 if(mydate?.split("‑")?.size ==  3)
                 {
                     val year  = mydate.split("‑").get(0).toInt()
@@ -146,14 +144,10 @@ class HomeFragment : Fragment() {
                     val day = mydate.split("‑").get(2).toInt()
 
                     myDate.set(year?:0,month?:0,day?:0)
-                    Log.e("MyDate Is","Here year ${year} month $month day$day")
-                    Log.e("MyDate fromDate Is","Here year ${fromDate.get(Calendar.YEAR)} month ${fromDate.get(Calendar.MONTH)} day${fromDate.get(Calendar.DATE)}")
-                    Log.e("MyDate toDate Is","Here year ${toDate.get(Calendar.YEAR)} month ${toDate.get(Calendar.MONTH)} day${fromDate.get(Calendar.DATE)}")
-
                 }
                 if((myDate.after(fromDate) || myDate.time == fromDate.time) &&
                     myDate.before(toDate)) {
-                    //display your report
+                    //add filtered data to list
                     myUserList.add(user)
                 }
 
@@ -196,8 +190,7 @@ class HomeFragment : Fragment() {
     }
     val onComplete: BroadcastReceiver = object : BroadcastReceiver() {
         override fun onReceive(ctxt: Context, intent: Intent) {
-            // your code
-            showMessage("File Successfully Downloaded")
+            showMessage(getString(R.string.file_download_success))
         }
     }
     private fun updatetoDateView() {
@@ -274,13 +267,13 @@ class HomeFragment : Fragment() {
             Log.e("Intent", "Action ${intent?.action}")
             handler.post {
                 run {
-                    if (intent?.action.equals("SELECT_ALL")) {
+                    if (intent?.action.equals(Utils.SELECT_ALL)) {
                         userList.forEach {
                             it.isSelected = true
                         }
                         myBinding?.listProducts?.adapter?.notifyDataSetChanged()
                     }
-                    else if (intent?.action.equals("UNSELECT_ALL")) {
+                    else if (intent?.action.equals(Utils.UNSELECT_ALL)) {
                         userList.forEach {
                             it.isSelected = false
                         }

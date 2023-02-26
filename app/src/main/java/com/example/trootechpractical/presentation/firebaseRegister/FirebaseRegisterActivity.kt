@@ -3,27 +3,25 @@ package com.example.trootechpractical.presentation.firebaseRegister
 import android.app.Activity
 import android.app.AlertDialog
 import android.content.Intent
-import android.database.Cursor
 import android.graphics.Bitmap
 import android.net.Uri
 import android.provider.MediaStore
 import android.provider.Settings
-import android.util.Log
 import android.view.View
 import androidx.activity.result.ActivityResult
 import androidx.activity.result.contract.ActivityResultContracts
 import com.bumptech.glide.Glide
 import com.example.trootechpractical.R
 import com.example.trootechpractical.databinding.ActivityFirebaseRegisterBinding
+import com.example.trootechpractical.domain.common.Output
+import com.example.trootechpractical.presentation.base.BaseActivity
+import com.example.trootechpractical.presentation.firebaseLogin.FirebaseLoginActivity
+import com.example.trootechpractical.utils.Utils
 import com.karumi.dexter.Dexter
 import com.karumi.dexter.MultiplePermissionsReport
 import com.karumi.dexter.PermissionToken
 import com.karumi.dexter.listener.PermissionRequest
 import com.karumi.dexter.listener.multi.MultiplePermissionsListener
-import com.example.trootechpractical.domain.common.Output
-import com.example.trootechpractical.presentation.base.BaseActivity
-import com.example.trootechpractical.utils.Utils
-import com.example.trootechpractical.presentation.firebaseLogin.FirebaseLoginActivity
 import dagger.hilt.android.AndroidEntryPoint
 import kotlinx.coroutines.CoroutineScope
 import kotlinx.coroutines.Dispatchers
@@ -41,7 +39,6 @@ class FirebaseRegisterActivity :
         ActivityFirebaseRegisterBinding::inflate
     ) {
     var selectedImage: String? = null
-    val REQUEST_PERMISSION_SETTING = 101
 
     override fun initActivity() {
         listener()
@@ -68,7 +65,7 @@ class FirebaseRegisterActivity :
                             val intent = Intent(Settings.ACTION_APPLICATION_DETAILS_SETTINGS)
                             val uri = Uri.fromParts("package", packageName, null)
                             intent.setData(uri)
-                            startActivityForResult(intent, REQUEST_PERMISSION_SETTING)
+                            startActivityIntent.launch(intent)
                         }
                     }
 
@@ -80,6 +77,11 @@ class FirebaseRegisterActivity :
                     }
                 }).check()
         }
+    }
+    var startActivityIntent = registerForActivityResult<Intent, ActivityResult>(
+        ActivityResultContracts.StartActivityForResult()
+    ) {
+
     }
 
     private fun observe() {

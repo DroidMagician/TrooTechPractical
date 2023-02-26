@@ -14,6 +14,11 @@ import java.io.*
 
 object Utils {
 
+    //Broadcast Receivers
+
+    var SELECT_ALL = "SELECT_ALL"
+    var UNSELECT_ALL = "UNSELECT_ALL"
+
     @JvmStatic
     fun getPermissionAsPerAndroidVersion(): ArrayList<String> {
         val list = ArrayList<String>()

@@ -42,7 +42,6 @@ object FileDownloader {
             //Enqueue download and save the referenceId
             downloadReference = downloadManager.enqueue(request)
         } catch (e: IllegalArgumentException) {
-            // BaseUtils.showToast(mContext, "Download link is broken or not availale for download")
             Log.e("TAG", "Line no: 455,Method: downloadFile: Download link is broken")
         }
         return downloadReference

@@ -5,7 +5,7 @@ import com.example.trootechpractical.domain.homeData.model.UserModel
 import kotlinx.coroutines.flow.Flow
 
 /**
- * Interface of Login HomeRepository to expose to other module
+ * Interface of HomeRepository to expose to other module
  */
 interface HomeRepository {
 
