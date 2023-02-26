@@ -9,76 +9,78 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:padding="10dp"
+        android:paddingTop="@dimen/_10sdp"
+        android:paddingBottom="@dimen/_10sdp"
         android:text="@string/filter"
         app:layout_constraintEnd_toStartOf="@+id/lilFromDate"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.2"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent" />
 
     <LinearLayout
         android:id="@+id/lilFromDate"
         android:layout_width="wrap_content"
-        android:minWidth="110dp"
+        android:minWidth="@dimen/_90sdp"
         android:layout_height="wrap_content"
         android:background="@drawable/date_background"
         app:layout_constraintBottom_toTopOf="@+id/btnDownload"
         app:layout_constraintEnd_toStartOf="@+id/lilToDate"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.4"
         android:gravity="center"
         app:layout_constraintStart_toEndOf="@+id/textView2"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txtFromDate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="@dimen/_8sdp"
             android:text="@string/from_date" />
     </LinearLayout>
 
     <LinearLayout
         android:id="@+id/lilToDate"
         android:layout_width="wrap_content"
-        android:minWidth="110dp"
+        android:minWidth="@dimen/_90sdp"
         android:gravity="center"
         android:layout_height="wrap_content"
         android:background="@drawable/date_background"
         app:layout_constraintBottom_toTopOf="@+id/btnDownload"
         app:layout_constraintEnd_toStartOf="@+id/icFilter"
-        app:layout_constraintHorizontal_bias="0.6"
+        app:layout_constraintHorizontal_bias="0.4"
         app:layout_constraintStart_toEndOf="@+id/lilFromDate"
         app:layout_constraintTop_toTopOf="parent">
 
         <TextView
             android:id="@+id/txtToDate"
-            android:layout_width="wrap_content"
+            android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:padding="10dp"
+            android:padding="@dimen/_8sdp"
             android:text="@string/to_date" />
     </LinearLayout>
     <ImageView
         android:id="@+id/icFilter"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:src="@drawable/apply"
         android:layout_marginEnd="15dp"
         app:layout_constraintBottom_toTopOf="@+id/btnDownload"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.4"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/lilToDate"
         app:layout_constraintTop_toTopOf="parent" />
     <ImageView
         android:id="@+id/icCross"
-        android:layout_width="25dp"
-        android:layout_height="25dp"
+        android:layout_width="@dimen/_20sdp"
+        android:layout_height="@dimen/_20sdp"
         android:visibility="gone"
         android:src="@drawable/cross"
-        android:layout_marginEnd="20dp"
-        android:layout_marginStart="10dp"
+        android:layout_marginEnd="@dimen/_15sdp"
+        android:paddingEnd="@dimen/_5sdp"
+        android:layout_marginStart="@dimen/_5sdp"
         app:layout_constraintBottom_toTopOf="@+id/btnDownload"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.3"
+        app:layout_constraintHorizontal_bias="0.1"
         app:layout_constraintStart_toEndOf="@+id/icFilter"
         app:layout_constraintTop_toTopOf="parent" />
 

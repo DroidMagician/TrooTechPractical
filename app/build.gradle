@@ -67,16 +67,20 @@ dependencies {
     implementation androidx.navigationFragment
     implementation androidx.navigationUi
 
+    //Firebase
     implementation platform('com.google.firebase:firebase-bom:31.2.2')
-    implementation 'com.google.firebase:firebase-analytics-ktx'
-    implementation 'com.google.firebase:firebase-auth-ktx'
-    implementation 'com.google.firebase:firebase-storage-ktx'
+    implementation firebase.analytics
+    implementation firebase.auth
+    implementation firebase.storage
+
+    //Dynamic dimension
+    implementation others.sdpAndroid
 
     //image Loading Library
-    implementation 'com.github.bumptech.glide:glide:4.12.0'
-    annotationProcessor 'com.github.bumptech.glide:compiler:4.12.0'
+    implementation others.glide
+    annotationProcessor others.glideCompiler
 
-    implementation "com.karumi:dexter:6.2.3"
+    implementation others.dexter
 
     //DI Hilt
     implementation hilt.hiltAndroid

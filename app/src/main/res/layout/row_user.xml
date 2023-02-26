@@ -23,17 +23,17 @@
         android:id="@+id/ll_product_root"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginBottom="5dp"
+        android:layout_marginBottom="@dimen/_5sdp"
         android:foreground="?selectableItemBackground"
         android:onClick="@{(v)->click.onClick(v)}"
         app:cardBackgroundColor="@color/white"
-        app:cardCornerRadius="10dp"
+        app:cardCornerRadius="@dimen/_8sdp"
         app:cardPreventCornerOverlap="true"
         app:cardUseCompatPadding="true">
 
         <LinearLayout
             android:layout_width="match_parent"
-            android:layout_height="150dp"
+            android:layout_height="@dimen/_140sdp"
             android:gravity="center"
             android:orientation="vertical">
 
@@ -45,14 +45,14 @@
                     android:layout_width="match_parent"
                     android:layout_height="match_parent"
                     android:adjustViewBounds="true"
-                    android:maxWidth="150dp"
+                    android:maxWidth="@dimen/_140sdp"
                     app:itemImage="@{model.download_url}"
-                    android:maxHeight="150dp"
+                    android:maxHeight="@dimen/_140sdp"
                     android:scaleType="centerCrop"
                    />
                 <CheckBox
                     android:layout_width="wrap_content"
-                    android:padding="5dp"
+                    android:padding="@dimen/_5sdp"
                     android:id="@+id/lc_checked"
                     android:onClick="@{(v)->click.onClick(v)}"
                     android:checked="@{model.selected}"

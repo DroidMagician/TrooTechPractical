@@ -13,19 +13,19 @@
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        android:layout_marginTop="36dp">
+        android:layout_marginTop="@dimen/_30sdp">
 
         <com.example.trootechpractical.utils.CircleImageView
             android:id="@+id/imgView"
-            android:layout_width="110dp"
-            android:layout_height="110dp"
+            android:layout_width="@dimen/_100sdp"
+            android:layout_height="@dimen/_100sdp"
             android:src="@drawable/temp_person" />
 
 
     </FrameLayout>
     <androidx.appcompat.widget.AppCompatEditText
         android:layout_width="match_parent"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/_20sdp"
         android:id="@+id/edtName"
         android:hint="@string/enter_name"
         android:enabled="false"
@@ -38,7 +38,7 @@
         android:id="@+id/edtEmail"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_margin="20dp"
+        android:layout_margin="@dimen/_20sdp"
         android:textColor="@android:color/black"
         android:hint="@string/enter_email_id"
         android:enabled="false"

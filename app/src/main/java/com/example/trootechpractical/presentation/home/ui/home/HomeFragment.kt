@@ -8,7 +8,6 @@ import android.content.Intent
 import android.content.IntentFilter
 import android.net.Uri
 import android.os.Bundle
-import android.os.Environment
 import android.os.Handler
 import android.util.Log
 import android.view.LayoutInflater
@@ -16,12 +15,11 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.DatePicker
 import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
 import androidx.fragment.app.Fragment
 import androidx.lifecycle.ViewModelProvider
 import androidx.recyclerview.widget.StaggeredGridLayoutManager
-import com.example.trootechpractical.R
 import com.example.trootechpractical.BR
+import com.example.trootechpractical.R
 import com.example.trootechpractical.databinding.FragmentHomeBinding
 import com.example.trootechpractical.domain.common.Output
 import com.example.trootechpractical.domain.homeData.model.UserModel
@@ -63,6 +61,8 @@ class HomeFragment : Fragment() {
         intentfilter.addAction("SELECT_ALL")
         intentfilter.addAction("UNSELECT_ALL")
         requireActivity().registerReceiver(receiver, IntentFilter(intentfilter))
+        requireActivity().registerReceiver(onComplete,  IntentFilter(DownloadManager.ACTION_DOWNLOAD_COMPLETE))
+
         return root
     }
 
@@ -133,24 +133,26 @@ class HomeFragment : Fragment() {
                 return@setOnClickListener
             }
             myBinding?.icCross?.visibility = View.VISIBLE
-            var dateFormat =  SimpleDateFormat("yyyy-MM-dd");
-            var myDate = Calendar.getInstance();
-            var myUserList = kotlin.collections.ArrayList<UserModel>()
+            val myDate = Calendar.getInstance();
+            val myUserList = kotlin.collections.ArrayList<UserModel>()
             for (user in userList)
             {
                 var mydate = user.date?.split(" ")?.get(0)
-                Log.e("MyDate is","Date ${mydate}")
+//                Log.e("MyDate is","Date ${mydate}")
                 if(mydate?.split("‑")?.size ==  3)
                 {
-                    var year  = mydate.split("‑").get(0).toInt()
-                    var month = mydate.split("‑").get(1).toInt()
-                    var day = mydate.split("‑").get(2).toInt()
+                    val year  = mydate.split("‑").get(0).toInt()
+                    val month = mydate.split("‑").get(1).toInt()
+                    val day = mydate.split("‑").get(2).toInt()
 
                     myDate.set(year?:0,month?:0,day?:0)
-                    Log.e("ToDate Is","Here year ${year} month $month day$day")
+                    Log.e("MyDate Is","Here year ${year} month $month day$day")
+                    Log.e("MyDate fromDate Is","Here year ${fromDate.get(Calendar.YEAR)} month ${fromDate.get(Calendar.MONTH)} day${fromDate.get(Calendar.DATE)}")
+                    Log.e("MyDate toDate Is","Here year ${toDate.get(Calendar.YEAR)} month ${toDate.get(Calendar.MONTH)} day${fromDate.get(Calendar.DATE)}")
+
                 }
-                if(myDate.after(fromDate) || myDate.time == fromDate.time &&
-                    myDate.before(toDate) || myDate.time == toDate.time) {
+                if((myDate.after(fromDate) || myDate.time == fromDate.time) &&
+                    myDate.before(toDate)) {
                     //display your report
                     myUserList.add(user)
                 }
@@ -192,7 +194,12 @@ class HomeFragment : Fragment() {
         val sdf = SimpleDateFormat(myFormat, Locale.US)
         myBinding?.txtFromDate?.text = sdf.format(fromDate.time)
     }
-
+    val onComplete: BroadcastReceiver = object : BroadcastReceiver() {
+        override fun onReceive(ctxt: Context, intent: Intent) {
+            // your code
+            showMessage("File Successfully Downloaded")
+        }
+    }
     private fun updatetoDateView() {
         val myFormat = "dd/MM/yyyy" // mention the format you need
         val sdf = SimpleDateFormat(myFormat, Locale.US)
@@ -287,6 +294,7 @@ class HomeFragment : Fragment() {
     override fun onDestroyView() {
         super.onDestroyView()
         requireActivity().unregisterReceiver(receiver)
+        requireActivity().unregisterReceiver(onComplete)
         myBinding = null
     }
 }
